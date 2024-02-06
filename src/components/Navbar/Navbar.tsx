@@ -35,20 +35,20 @@ import css from "./styles.module.css";
 import Chat from "../chat/Chat";
 import { message } from "antd";
 
-import io from "socket.io-client";
+// import io from "socket.io-client";
 import { handleRequestWithToken } from "../../utils/index.js";
 import { SongType } from "../../types/index";
 import { useToken } from "../../hooks/useToken";
 import { usePost } from "../../hooks/usePost";
 
-const socket = io(SERVER_URL, {
-  reconnectionDelay: 1000,
-  reconnection: true,
-  transports: ["websocket"],
-  agent: false,
-  upgrade: false,
-  rejectUnauthorized: false,
-});
+// const socket = io(SERVER_URL, {
+//   reconnectionDelay: 1000,
+//   reconnection: true,
+//   transports: ["websocket"],
+//   agent: false,
+//   upgrade: false,
+//   rejectUnauthorized: false,
+// });
 
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -103,11 +103,11 @@ export default function Navbar() {
     checkLoggedIn();
     getCartSize();
 
-    socket.on("cart", ({ cart, token, numberInCart }) => {
-      if (token === useToken()) {
-        setCart(numberInCart);
-      }
-    });
+    // socket.on("cart", ({ cart, token, numberInCart }) => {
+    //   if (token === useToken()) {
+    //     setCart(numberInCart);
+    //   }
+    // });
   }, []);
 
   const handleProfileMenuOpen = (event) => {

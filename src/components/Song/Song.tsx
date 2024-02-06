@@ -12,20 +12,20 @@ import CheckIcon from "@mui/icons-material/Check";
 import Loader from "../loader/loader.tsx";
 import { message } from "antd";
 
-import io from "socket.io-client";
+// import io from "socket.io-client";
 import { handleRequestWithToken } from "../../utils";
 import { SongType } from "../../types/index.tsx";
 import { useToken } from "../../hooks/useToken.js";
 import { usePost } from "../../hooks/usePost.js";
 import { SERVER_URL, USERS } from "../../constants/index.jsx";
-const socket = io(SERVER_URL, {
-  reconnectionDelay: 1000,
-  reconnection: true,
-  transports: ["websocket"],
-  agent: false,
-  upgrade: false,
-  rejectUnauthorized: false,
-});
+// const socket = io(SERVER_URL, {
+//   reconnectionDelay: 1000,
+//   reconnection: true,
+//   transports: ["websocket"],
+//   agent: false,
+//   upgrade: false,
+//   rejectUnauthorized: false,
+// });
 
 function Song({
   title,
@@ -65,11 +65,11 @@ function Song({
       const cart = JSON.parse(localStorage.getItem("cart"));
       cart.push(songId);
       if (!handleRequestWithToken()) return navigate("/");
-      socket.emit("cart", {
-        token: useToken(),
-        cart: cart,
-        numberInCart: cart.length,
-      });
+      // socket.emit("cart", {
+      //   token: useToken(),
+      //   cart: cart,
+      //   numberInCart: cart.length,
+      // });
 
       localStorage.setItem("cart", JSON.stringify(cart));
     }

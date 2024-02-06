@@ -1,7 +1,7 @@
 import { Grid, Card, Divider, Typography, Button, Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import CartItem from "../CartItem/CartItem";
-import classes from "./cart.module.css";
+import classes from "./Cart.module.css";
 import Loader from "../loader/loader";
 import axios from "axios";
 import { message } from "antd";

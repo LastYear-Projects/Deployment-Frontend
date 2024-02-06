@@ -18,7 +18,14 @@ import { SongType } from "../../types/index.tsx";
 import { useToken } from "../../hooks/useToken.js";
 import { usePost } from "../../hooks/usePost.js";
 import { SERVER_URL, USERS } from "../../constants/index.jsx";
-const socket = io(SERVER_URL);
+const socket = io(SERVER_URL, {
+  reconnectionDelay: 1000,
+  reconnection: true,
+  transports: ["websocket"],
+  agent: false,
+  upgrade: false,
+  rejectUnauthorized: false,
+});
 
 function Song({
   title,

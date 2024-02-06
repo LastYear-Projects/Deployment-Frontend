@@ -19,7 +19,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChatIcon from "@mui/icons-material/Chat";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useState, useEffect } from "react";
-import { AUTH, SERVER_URL, SONGS, StyledAutocomplete, USERS } from "../../constants/index";
+import {
+  AUTH,
+  SERVER_URL,
+  SONGS,
+  StyledAutocomplete,
+  USERS,
+} from "../../constants/index";
 import axios from "axios";
 import MoozikaLogo from "../moozikaLogo/MoozikaLogo";
 import SignInModal from "../modal/SignInModal";
@@ -35,7 +41,14 @@ import { SongType } from "../../types/index";
 import { useToken } from "../../hooks/useToken";
 import { usePost } from "../../hooks/usePost";
 
-const socket = io(SERVER_URL);
+const socket = io(SERVER_URL, {
+  reconnectionDelay: 1000,
+  reconnection: true,
+  transports: ["websocket"],
+  agent: false,
+  upgrade: false,
+  rejectUnauthorized: false,
+});
 
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);

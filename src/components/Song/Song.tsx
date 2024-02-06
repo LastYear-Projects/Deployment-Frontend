@@ -11,7 +11,7 @@ import ReactPlayer from "react-player";
 import CheckIcon from "@mui/icons-material/Check";
 import Loader from "../loader/loader.tsx";
 import { message } from "antd";
-
+//     "socket.io-client": "^4.7.2",
 // import io from "socket.io-client";
 import { handleRequestWithToken } from "../../utils";
 import { SongType } from "../../types/index.tsx";

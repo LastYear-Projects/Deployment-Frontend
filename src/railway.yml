@@ -1,4 +1,0 @@
-version: 3.0
-services:
-  my-service:
-    buildScript: npm install --legacy-peer-deps
